@@ -11,7 +11,7 @@ public class FindIssueTest extends TestBase {
     public static final String REPOSITORY = "ysicy/junitHomeWork";
     public static final String ISSUETEXT = "Welcome to issues!";
     @Test
-    public void testLambdaStep (){
+    public void lambdaStep () {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем главную страницу github", () -> {
@@ -31,18 +31,4 @@ public class FindIssueTest extends TestBase {
         step("Проверяем наличие текста " + ISSUETEXT, () -> {
             $x("//div[contains(@class,'container-md')]").shouldHave(Condition.text(ISSUETEXT));
         });
-    }
-
-    @Test
-    public void searchIssueTest(){
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        WebSteps steps = new WebSteps();
-
-        steps.openMainPage();
-        steps.searchRepo();
-        steps.clickRepo();
-        steps.clickIssue();
-        steps.searchText();
-    }
-
-}
+    }}
